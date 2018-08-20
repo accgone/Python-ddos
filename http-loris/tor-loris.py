@@ -44,7 +44,7 @@ def main(host, port, sockshost, socksport):
 
     loris.options['threadlimit'] = 2500
     loris.options['connectionlimit'] = 5000
-    loris.options['connectionspeed'] = 1
+    loris.options['connectionspeed'] = 100
 
     # Enable SOCKS5 on local port 9050
     loris.options['socksversion'] = 'SOCKS5'

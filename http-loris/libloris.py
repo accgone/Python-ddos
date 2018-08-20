@@ -43,14 +43,14 @@ def DefaultOptions():
     return {
         'host' : 'localhost',           # Host to attack
         'port' : 80,                    # Port to connect to
-        'ssl' : False,                  # Use SSL connections
+        'ssl' : False,                   # Use SSL connections
         
-        'attacklimit' : 500,            # Total number of times to attack (0 for unlimited)
-        'connectionlimit' : 500,        # Total number of concurrent connections (0 for unlimited)
-        'threadlimit' : 50,             # Total number of threads (0 for unlimited)
+        'attacklimit' : 5000,            # Total number of times to attack (0 for unlimited)
+        'connectionlimit' : 5000,        # Total number of concurrent connections (0 for unlimited)
+        'threadlimit' : 500,             # Total number of threads (0 for unlimited)
         'connectionspeed' : 1,          # Connection speed in bytes/second
-        'timebetweenthreads' : 1,       # Time delay between starting threads
-        'timebetweenconnections' : 1,   # Time delay between starting connections
+        'timebetweenthreads' : 0.1,       # Time delay between starting threads
+        'timebetweenconnections' : 0.1,   # Time delay between starting connections
         'quitimmediately' : False,      # Close connections immediately after completing request
 
         'socksversion' : '',            # Enable SOCKS proxy, set to SOCKS4, SOCKS5, or HTTP
